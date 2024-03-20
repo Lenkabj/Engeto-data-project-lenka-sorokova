@@ -1,2 +1,2 @@
-# Engeto-data-project-lenka-sorokova
+# Engeto-SQLproject-lenka-sorokova
 Project Engeto data academy
