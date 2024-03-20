@@ -1,2 +1,2 @@
 # Engeto-SQLproject-lenka-sorokova
-Project Engeto data academy
+SQL Project Engeto data academy - Dostupnost základních potravin široké veřejnosti.
