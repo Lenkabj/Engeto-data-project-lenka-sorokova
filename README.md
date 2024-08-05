@@ -44,7 +44,7 @@ Jako dodatečný materiál je potřeba připravit i tabulku s HDP, GINI koeficie
 
 ## Výstup projektu
 
-Výstupom sú dve finálne tabuľky, pomocou ktorých je možné na výskumné otázky zodpovedať.
+Výstupom sú dve finálne tabuľky a sada SQL dotazov, pomocou ktorých je možné na výskumné otázky zodpovedať.
 **t_lenka_sorokova_project_SQL_primary_final** (pre dáta miezd a cien potravín za Českú republiku zjednotených na totožné porovnatelné obdobie – spoločné roky)
 **t_lenka_sorokova_project_SQL_secondary_final** (pre dodatočné dáta o ďalších evropských štátoch)
                                                                                                                  zdroj: https://engeto.cz/
