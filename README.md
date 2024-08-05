@@ -2,7 +2,7 @@
 
 # Úvod do projektu
 
-Tento projekt som vypracovala po skončení kurzu Engeto - Datová akademie. Jeho úlohou je si precvičiť nadobudnuté vedomosti a vyskúšať si prácu datového analytika v reále a na skutočných dátach.
+Tento projekt som vypracovala po skončení kurzu Engeto - Datová akademie. Jeho úlohou je si precvičiť nadobudnuté vedomosti SQL jazyka a vyskúšať si prácu datového analytika v reále a na skutočných dátach.
 
 # Zadanie projektu
 
@@ -41,12 +41,13 @@ Jako dodatečný materiál je potřeba připravit i tabulku s HDP, GINI koeficie
    3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
    4. Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
    5. Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?    
+                                                                                                                 zdroj: https://engeto.cz/
 
 ## Výstup projektu
 
 Výstupom sú dve finálne tabuľky a sada SQL dotazov, pomocou ktorých je možné na výskumné otázky zodpovedať.
 **t_lenka_sorokova_project_SQL_primary_final** (pre dáta miezd a cien potravín za Českú republiku zjednotených na totožné porovnatelné obdobie – spoločné roky)
 **t_lenka_sorokova_project_SQL_secondary_final** (pre dodatočné dáta o ďalších evropských štátoch)
-                                                                                                                 zdroj: https://engeto.cz/
+                                                                                                                 
 
 
