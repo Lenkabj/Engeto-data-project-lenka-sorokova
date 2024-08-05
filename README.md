@@ -50,6 +50,9 @@ Výstupom sú dve finálne tabuľky a sada SQL dotazov, pomocou ktorých je mož
 **t_lenka_sorokova_project_SQL_secondary_final** (pre dodatočné dáta o ďalších evropských štátoch)
 
 Postupy, analýzy a komentáre k jednotlivých výskumným otázkam sú rozdelené do samostatných zložiek repozitára.
+
+# Záver
+
                                                                                                                  
 
 
