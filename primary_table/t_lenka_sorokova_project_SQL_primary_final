@@ -20,8 +20,8 @@ WHERE 1=1
 	AND cpay.industry_branch_code IS NOT NULL -- táto podmienka mi zaistí, že tam nebudem mať úhrn za všetky odvetvia v danom časovom období
 	AND cp.region_code IS NULL -- táto podmienka mi zabezpečí priemernú cenu jednej kategórie za všetky regiony
 GROUP BY cpay.industry_branch_code,
-	     cpib.name,
-	     cpay.payroll_year,
-	     cp.category_code,
-	     cpc.name
+	 cpib.name,
+	 cpay.payroll_year,
+	 cp.category_code,
+	 cpc.name
 ORDER BY cpay.industry_branch_code, cpay.payroll_year, cp.category_code;
