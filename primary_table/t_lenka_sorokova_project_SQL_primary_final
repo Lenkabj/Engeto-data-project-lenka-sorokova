@@ -1,13 +1,26 @@
 SELECT
-			ROUND(AVG(cpay.value),2) AS average_wage,
+			round(avg(cpay.value), 2) AS average_wage,
 			cpay.industry_branch_code AS industry_code,
+			cpib.name AS industry,
 			cpay.payroll_year,
-			cpib.name AS industry
-	FROM czechia_payroll cpay
+			cp.category_code AS food_category_code,
+			cpc.name AS food_name,
+			round(avg(cp.value), 2) AS average_price 
+FROM czechia_payroll cpay
 	LEFT JOIN czechia_payroll_industry_branch cpib 
-			ON cpay.industry_branch_code  = cpib.code 
-	WHERE 1=1
-		AND cpay.industry_branch_code IS NOT NULL -- tato podmienka mi zaistí, že tam nebudem mať úhrn za všetky odvetvia v danom časovom období
-		AND cpay.value_type_code = 5958
-		AND cpay.calculation_code = 200
-	GROUP BY cpay.industry_branch_code, cpay.payroll_year;
+		ON cpay.industry_branch_code = cpib.code
+	LEFT JOIN czechia_price cp 
+		ON cpay.payroll_year = YEAR (cp.date_from)
+	LEFT JOIN czechia_price_category cpc
+		ON cp.category_code = cpc.code 
+WHERE 1=1
+	AND cpay.value_type_code = 5958 -- kód pre priemernú mzdu
+	AND cpay.calculation_code = 200 -- prepočítaný počet zamestnancov na plný úväzok 
+	AND cpay.industry_branch_code IS NOT NULL -- táto podmienka mi zaistí, že tam nebudem mať úhrn za všetky odvetvia v danom časovom období
+	AND cp.region_code IS NULL -- táto podmienka mi zabezpečí priemernú cenu jednej kategórie za všetky regiony
+GROUP BY cpay.industry_branch_code,
+		 cpib.name,
+		 cpay.payroll_year,
+		 cp.category_code,
+		 cpc.name
+ORDER BY cpay.industry_branch_code, cpay.payroll_year, cp.category_code;
