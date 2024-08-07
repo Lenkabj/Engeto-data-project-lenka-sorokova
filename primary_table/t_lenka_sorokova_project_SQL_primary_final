@@ -1,11 +1,12 @@
+CREATE OR REPLACE TABLE t_lenka_sorokova_project_SQL_primary_final AS
 SELECT
-			round(avg(cpay.value), 2) AS average_wage,
-			cpay.industry_branch_code AS industry_code,
-			cpib.name AS industry,
-			cpay.payroll_year,
-			cp.category_code AS food_category_code,
-			cpc.name AS food_name,
-			round(avg(cp.value), 2) AS average_price 
+		round(avg(cpay.value), 2) AS average_wage,
+		cpay.industry_branch_code AS industry_code,
+		cpib.name AS industry,
+		cpay.payroll_year,
+		cp.category_code AS food_category_code,
+		cpc.name AS food_name,
+		round(avg(cp.value), 2) AS average_price 
 FROM czechia_payroll cpay
 	LEFT JOIN czechia_payroll_industry_branch cpib 
 		ON cpay.industry_branch_code = cpib.code
