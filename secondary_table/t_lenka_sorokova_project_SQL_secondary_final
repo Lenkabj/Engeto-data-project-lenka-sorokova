@@ -1,0 +1,4 @@
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1
+WHERE payroll_year BETWEEN 2006 AND 2018;
