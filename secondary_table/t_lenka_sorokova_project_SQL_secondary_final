@@ -11,5 +11,5 @@ FROM countries c
 LEFT JOIN economies e 
 	ON c.country = e.country 
 WHERE c.continent = 'Europe'
-	AND `year` BETWEEN 2006 AND 2018
-ORDER BY country, `year`;
+	AND e.`year` >= 2006
+ORDER BY e.country, e.`year`;
