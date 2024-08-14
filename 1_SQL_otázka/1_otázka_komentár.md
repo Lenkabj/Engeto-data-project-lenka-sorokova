@@ -1,1 +1,1 @@
-Výzkumná otázka: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+**Výzkumná otázka: **Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
