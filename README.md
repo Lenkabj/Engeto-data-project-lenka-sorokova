@@ -2,7 +2,7 @@
 
 # Úvod do projektu
 
-Tento projekt som vypracovala po skončení kurzu Engeto - Datová akademie. Jeho úlohou je si precvičiť nadobudnuté vedomosti SQL jazyka a vyskúšať si prácu datového analytika v reále a na skutočných dátach.
+Tento projekt som vypracovala po skončení kurzu Engeto - Datová akademie. Jeho úlohou je si precvičiť nadobudnuté znalosti SQL jazyka a vyskúšať si prácu datového analytika v reále a na skutočných dátach.
 
 # Zadanie projektu
 
@@ -16,13 +16,13 @@ Jako dodatečný materiál je potřeba připravit i tabulku s HDP, GINI koeficie
 
 **Primární tabulky:**
 
-    **czechia_payroll** – Informace o mzdách v různých odvětvích za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
-    **czechia_payroll_calculation **– Číselník kalkulací v tabulce mezd.
-    **czechia_payroll_industry_branch** – Číselník odvětví v tabulce mezd.
-    **czechia_payroll_unit** – Číselník jednotek hodnot v tabulce mezd.
-    **czechia_payroll_value_type** – Číselník typů hodnot v tabulce mezd.
-    **czechia_price** – Informace o cenách vybraných potravin za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
-    **czechia_price_category** – Číselník kategorií potravin, které se vyskytují v našem přehledu.
+  **czechia_payroll** – Informace o mzdách v různých odvětvích za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
+  **czechia_payroll_calculation** - Číselník kalkulací v tabulce mezd.
+  **czechia_payroll_industry_branch** – Číselník odvětví v tabulce mezd.
+  **czechia_payroll_unit** – Číselník jednotek hodnot v tabulce mezd.
+  **czechia_payroll_value_type** – Číselník typů hodnot v tabulce mezd.
+  **czechia_price** – Informace o cenách vybraných potravin za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
+  **czechia_price_category** – Číselník kategorií potravin, které se vyskytují v našem přehledu.
 
 **Číselníky sdílených informací o ČR:**
 
