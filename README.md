@@ -17,7 +17,7 @@ Jako dodatečný materiál je potřeba připravit i tabulku s HDP, GINI koeficie
 **Primární tabulky:**
 
    **czechia_payroll** – Informace o mzdách v různých odvětvích za několikaleté období. Datová sada pochází z Portálu otevřených dat ČR.
-   **czechia_payroll_calculation** - Číselník kalkulací v tabulce mezd.
+   **czechia_payroll_calculation** – Číselník kalkulací v tabulce mezd.
    **czechia_payroll_industry_branch** – Číselník odvětví v tabulce mezd.
    **czechia_payroll_unit** – Číselník jednotek hodnot v tabulce mezd.
    **czechia_payroll_value_type** – Číselník typů hodnot v tabulce mezd.
@@ -31,7 +31,7 @@ Jako dodatečný materiál je potřeba připravit i tabulku s HDP, GINI koeficie
 
 **Dodatečné tabulky:**
 
-   **countries** - Všemožné informace o zemích na světě, například hlavní město, měna, národní jídlo nebo průměrná výška populace.
+   **countries** - Všemožné informace o zemích na světě, například hlavní město, měna, národní jídlo nebo průměrná výška populace
    **economies** - HDP, GINI, daňová zátěž, atd. pro daný stát a rok. 
 
 **Výzkumné otázky**
