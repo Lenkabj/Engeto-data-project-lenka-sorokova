@@ -1,4 +1,5 @@
 V prvej fáze som sa oboznámila s tabuľkami uvedenými v zadaní projektu , pomocou ktorých som  vytvorila primárnu tabuľku, potrebnú na zodpovedanie výskumných otázok.
 To zahŕňalo základnú analýzu dát, pochopenie vzťahov medzi tabuľkami, zistenie nulových hodnôt.
 Následne som si vybrala kľúčové dáta, vydefinovala potrebné obmedzenia a dáta zoradila.
-Výsledkom je tabuľka **t_lenka_sorokova_project_SQL_primary_final** (https://primary_table/t_lenka_sorokova_project_SQL_primary_final)
+
+Výsledkom je tabuľka **t_lenka_sorokova_project_SQL_primary_final** (https://github.com/Lenkabj/Engeto-data-project-lenka-sorokova/blob/main/primary_table/t_lenka_sorokova_project_SQL_primary_final)
