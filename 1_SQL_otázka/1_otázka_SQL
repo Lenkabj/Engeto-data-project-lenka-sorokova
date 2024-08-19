@@ -12,7 +12,7 @@ FROM t_lenka_sorokova_project_sql_primary_final tls1; -- selekt potrebných stĺ
 
 SELECT 
 	in_year,	
-	avg(average_wage) ,
+	average_wage ,
 	industry_code ,
 	industry
 FROM t_lenka_sorokova_project_sql_primary_final tls1
