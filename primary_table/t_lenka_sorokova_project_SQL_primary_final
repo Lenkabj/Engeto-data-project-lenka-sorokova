@@ -15,10 +15,10 @@ FROM czechia_payroll cpay
 	LEFT JOIN czechia_price_category cpc
 		ON cp.category_code = cpc.code 
 WHERE 1=1
-	AND cpay.value_type_code = 5958 -- kód pre priemernú mzdu
-	AND cpay.calculation_code = 200 -- prepočítaný počet zamestnancov na plný úväzok 
-	AND cpay.industry_branch_code IS NOT NULL -- táto podmienka mi zaistí, že tam nebudem mať úhrn za všetky odvetvia v danom časovom období
-	AND cp.region_code IS NULL -- táto podmienka mi zabezpečí priemernú cenu jednej kategórie za všetky regiony
+	AND cpay.value_type_code = 5958 
+	AND cpay.calculation_code = 200 
+	AND cpay.industry_branch_code IS NOT NULL 
+	AND cp.region_code IS NULL 
 GROUP BY cpay.industry_branch_code,
 	 cpib.name,
 	 cpay.payroll_year,
