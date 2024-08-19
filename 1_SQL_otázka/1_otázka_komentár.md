@@ -1,4 +1,4 @@
-## Výzkumná otázka: **Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+## Výzkumná otázka: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 
 Na zistenie odpovede 1. otázky som si pre prehľadnosť zobrazila mnou vytvorenú primárnu tabuľku, ktorá obsahuje všetky potrebné dáta.
 Následne som si z tabuľky vyselektovala potrebné stĺpce a určila časové rozpätie 2000 - 2021. 
