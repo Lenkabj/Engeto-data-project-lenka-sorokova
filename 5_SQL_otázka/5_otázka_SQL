@@ -15,13 +15,13 @@ FROM t_lenka_sorokova_project_sql_secondary_final tls2; -- zobrazenie 2. tabuľk
 SELECT 
 	*
 FROM t_lenka_sorokova_project_sql_primary_final tls1
-WHERE in_year BETWEEN 2006 AND 2018;   					-- obmedzenie na spoločné roky 
+WHERE in_year BETWEEN 2006 AND 2018;   					-- obmedzenie tls1 na spoločné roky 
 
 
 SELECT 
 	*
 FROM t_lenka_sorokova_project_sql_secondary_final tls2
-WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic';  -- obmedzenie na spoločné roky a ČR
+WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic';  -- obmedzenie tls2 na spoločné roky a ČR
 
 
 WITH gdp_percentage_increase AS (
