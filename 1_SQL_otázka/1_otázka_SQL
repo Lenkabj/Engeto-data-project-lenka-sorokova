@@ -1,2 +1,99 @@
 Výzkumná otázka: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie tabuľky tls1
+
+SELECT 
+	industry_code ,
+	industry,
+	average_wage ,
+	in_year 
+FROM t_lenka_sorokova_project_sql_primary_final tls1; -- selekt potrebných stĺpcov
+
+SELECT 
+	in_year,	
+	avg(average_wage) ,
+	industry_code ,
+	industry
+FROM t_lenka_sorokova_project_sql_primary_final tls1
+GROUP BY industry_code ,
+		 industry,
+		 in_year 
+ORDER BY industry_code, in_year;                        -- prvá možnosť
+
+SELECT 
+	industry_code ,
+	industry,
+	in_year,
+	average_wage,
+	LAG(average_wage) OVER (PARTITION BY industry_code ORDER BY in_year) AS previous_wage,
+	average_wage - LAG(average_wage) OVER (PARTITION BY industry_code ORDER BY 	in_year) AS increments
+FROM t_lenka_sorokova_project_sql_primary_final tls1
+GROUP BY industry_code, in_year 
+ORDER BY industry_code, in_year;                         -- vypísanie prírastkov
+
+WITH wage_2021 AS(
+	SELECT 
+		average_wage ,
+		industry_code ,
+		industry
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE 1=1
+		AND in_year = 2021
+	ORDER BY industry_code),		
+	wage_2000 AS (	 
+	SELECT 
+		average_wage ,
+		industry_code ,
+		industry
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE 1=1
+		AND in_year = 2000
+	ORDER BY industry_code)
+SELECT 
+	w2021.industry_code,
+	w2021.industry,
+	w2021.average_wage AS avg_wage_2021,
+	w2000.average_wage AS avg_wage_2000,
+	(w2021.average_wage - w2000.average_wage) AS difference,
+	IF (w2021.average_wage - w2000.average_wage > 0, 1, 0) AS increasing_trend
+FROM wage_2021 w2021
+LEFT JOIN wage_2000 w2000
+	ON w2021.industry_code = w2000.industry_code
+ORDER BY w2021.industry_code;												-- porovnanie trendu 2000 vs. 2021
+
+
+WITH wage_2021 AS(
+	SELECT 
+		average_wage ,
+		industry_code ,
+		industry
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE 1=1
+		AND in_year = 2021
+	ORDER BY industry_code),		
+	wage_2000 AS (	 
+	SELECT 
+		average_wage ,
+		industry_code ,
+		industry
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE 1=1
+		AND in_year = 2000
+	ORDER BY industry_code)
+SELECT 
+	w2021.industry_code,
+	w2021.industry,
+	w2021.average_wage AS avg_wage_2021,
+	w2000.average_wage AS avg_wage_2000,
+	(w2021.average_wage - w2000.average_wage) AS difference,
+	IF (w2021.average_wage - w2000.average_wage > 0, 1, 0) AS increasing_trend,
+	round(((w2021.average_wage - w2000.average_wage) / w2000.average_wage) * 100,2) AS expressed_percentage 
+FROM wage_2021 w2021
+LEFT JOIN wage_2000 w2000
+	ON w2021.industry_code = w2000.industry_code
+ORDER BY w2021.industry_code;				                                    --  percentuálne vyjadrenie
+
+
+
 
