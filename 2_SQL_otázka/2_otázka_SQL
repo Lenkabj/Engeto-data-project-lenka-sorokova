@@ -1,2 +1,47 @@
 Výzkumná otázka: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období
 v dostupných datech cen a mezd?
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie tabuľky tls1
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1
+WHERE food_category_code IS NOT NULL 
+ORDER BY in_year DESC; 					-- zistenie prvého a posledného spoločného obdobia pomocou ORDER BY ASC, DESC
+
+WITH purchasing_power_2006 AS (		 
+	SELECT 
+	    food_category_code,
+	    food_name,
+	    round(avg(average_wage), 2) AS avg_wage_all_industry_2006,
+	    average_price AS average_price_2006,
+	    round((round(avg(average_wage), 2) / average_price),2) AS purchasing_power_2006
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE in_year = 2006 
+	      AND food_category_code IN (114201, 111301)
+    GROUP BY food_category_code,
+	         food_name,	
+	         average_price),							
+    purchasing_power_2018 AS (		
+	SELECT 
+	    food_category_code,
+	    food_name,
+	    round(avg(average_wage), 2) AS avg_wage_all_industry_2018,
+	    average_price AS average_price_2018,
+	    round((round(avg(average_wage), 2) / average_price),2) AS purchasing_power_2018
+    FROM t_lenka_sorokova_project_sql_primary_final tls1
+    WHERE in_year = 2018 
+	     AND food_category_code IN (114201, 111301)
+    GROUP BY food_category_code,
+	        food_name,	
+	        average_price)
+SELECT
+	pp2018.food_category_code,
+	pp2018.food_name,
+	pp2006.purchasing_power_2006,
+	pp2018.purchasing_power_2018
+FROM purchasing_power_2018 pp2018
+LEFT JOIN purchasing_power_2006 pp2006
+	ON pp2018.food_category_code = pp2006.food_category_code;  -- výsledný dotaz
