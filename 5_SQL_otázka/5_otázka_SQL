@@ -1,3 +1,62 @@
 Výzkumná otázka: Má výška HDP vliv na změny ve mzdách a cenách potravin?
 Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím 
 roce výraznějším růstem?
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie 1. tabuľky
+
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_secondary_final tls2; -- zobrazenie 2. tabuľky
+
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_primary_final tls1
+WHERE in_year BETWEEN 2006 AND 2018;   					-- obmedzenie na spoločné roky 
+
+
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_secondary_final tls2
+WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic';  -- obmedzenie na spoločné roky a ČR
+
+
+WITH gdp_percentage_increase AS (
+    SELECT 
+	    in_year,
+	    GDP,
+	    lag(GDP) OVER (ORDER BY in_year) AS previous_year_GDP,
+	    round(((GDP - lag(GDP) OVER (ORDER BY in_year)) / lag(GDP) OVER (ORDER BY in_year)) * 100, 2) AS percentage_gdp_changes
+    FROM t_lenka_sorokova_project_sql_secondary_final tls2
+    WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic'),
+wage_percentage_increase AS (
+    SELECT 
+	    in_year ,
+	    avg(average_wage) AS average_wages ,
+	    lag(avg(average_wage)) OVER (ORDER BY in_year) AS previous_year_average_wages,
+	    round(((avg(average_wage) - lag(avg(average_wage)) OVER (ORDER BY in_year)) / lag(avg(average_wage)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_wages_changes
+    FROM t_lenka_sorokova_project_sql_primary_final tls1
+    WHERE in_year BETWEEN 2006 AND 2018 
+    GROUP BY in_year),
+price_percentage_increase AS (
+    SELECT 
+	    in_year ,
+	    avg(average_price) AS average_prices ,
+	    lag(avg(average_price)) OVER (ORDER BY in_year) AS previous_year_average_prices,
+	    round(((avg(average_price) - lag(avg(average_price)) OVER (ORDER BY in_year)) / lag(avg(average_price)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_prices_changes
+    FROM t_lenka_sorokova_project_sql_primary_final tls1
+    WHERE in_year BETWEEN 2006 AND 2018 
+    GROUP BY in_year)
+SELECT 
+	gdpi.in_year,
+	gdpi.percentage_gdp_changes,
+	wpi.percentage_wages_changes,
+	ppi.percentage_prices_changes
+FROM gdp_percentage_increase gdpi
+LEFT JOIN wage_percentage_increase wpi
+	ON gdpi.in_year = wpi.in_year
+LEFT JOIN price_percentage_increase ppi
+	ON gdpi.in_year = ppi.in_year;
