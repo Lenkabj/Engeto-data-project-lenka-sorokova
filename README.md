@@ -53,6 +53,19 @@ Postupy, analýzy a komentáre k jednotlivých výskumným otázkam sú rozdelen
 
 # Záver
 
+Cieľom projektu bolo vytvoriť dve hlavné tabuľky a sadu SQL dotazov, pomocou ktorých je možné zodpovedať na zadané výskumné otázky.
+Výsledky analýzy môžete vidieť v samostatných zložkách tohto repozitára.
+
+Pri vypracovávaní projektu som sa potýkala s rôznymi úskaliami.
+V prvom rade bolo potrebné sa oboznámiť s poskytnutými tabuľkami. Aké dáta obsahujú, kde sú nulové hodnoty, zdvojené údaje, časové rozhranie a tak ďalej, aby som si následne vedela z tabuliek vybrať len relevantné dáta a s tými pracovať.
+
+SQL jazyk nám ponúka viacero možností, ako k analýze pristupovať.
+Ja som využívala najmä Common Table Expression CTE (klauzula WITH), čo mi umožnilo si dotaz rozdeliť na menšie časti a následne ich spojiť do požadovaného výstupu. CTE umožňuje nie len ľahšiu analýzu, ale aj lepšiu čitateľnosť kódu.
+Určite by bolo zaujímavé pokračovať v analýze hlbšie a zamerať sa detailnejšie na vývoj cien, miezd - regionálne rozdiely alebo GINI - príjmovej nerovnosti v spoločnosti. 
+
+Projekt som vypracovala v relačnej databáze MariaDB a pomocou verzovacieho systému Git (pre uľahčenie som pracovala v grafickom rozhraní Visual Studio Code) a následne som výstupy zdieľala tu na platforme GitHub.
+V prípade potreby doplňujúcich otázok sa na mňa neváhajte prostredníctvom GitHub obrátiť. (https://github.com/Lenkabj)
+
                                                                                                                  
 
 
