@@ -1,5 +1,0 @@
-Pre získanie dodatočných dát o ČR a ďalších štátoch Európy som pomocou LEFT JOIN spojila tabuľky economies a countries, ktoré sme dostali k dispozícii.
-Nechcela som sa zamerať len na štáty EU, a tak som tabuľku obmedzila na kontinent Európa. Môžu sa tak ukázať rozdiely pr. v HDP, GINI koeficiente alebo 
-v life expectancy medzi štátmi EU a ostatnými štátmi európskeho kontinentu.
-Ďalej som dáta obmedzila časovo a to od roku 2006 a vyššie.
-Poskytnuté dáta neboli úplne kompletné a ani presné, a preto by na hlbšiu analýzu bolo potrebné dáta doplniť z iných zdrojov, než som mala k dispozícii.
