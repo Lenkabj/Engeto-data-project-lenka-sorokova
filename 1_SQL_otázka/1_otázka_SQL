@@ -28,7 +28,7 @@ SELECT
 	in_year,
 	average_wage,
 	LAG(average_wage) OVER (PARTITION BY industry_code ORDER BY in_year) AS previous_wage,
-	average_wage - LAG(average_wage) OVER (PARTITION BY industry_code ORDER BY 	in_year) AS increments
+	average_wage - LAG(average_wage) OVER (PARTITION BY industry_code ORDER BY in_year) AS increments
 FROM t_lenka_sorokova_project_sql_primary_final tls1
 GROUP BY industry_code, in_year 
 ORDER BY industry_code, in_year;                         -- vypísanie prírastkov
