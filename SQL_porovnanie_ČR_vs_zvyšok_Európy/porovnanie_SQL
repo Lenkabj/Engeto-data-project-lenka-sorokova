@@ -1,0 +1,16 @@
+SELECT 
+	*
+FROM t_lenka_sorokova_project_sql_secondary_final tls2; -- zobrazení secondary_table
+
+
+SELECT 
+	country ,
+	round(avg(GDP), 2) AS average_GDP,
+	round(avg(population), 2) AS average_population,
+	round(avg(gini), 2) AS average_gini,
+	avg(life_expectancy) AS average_expectancy_life,
+	currency_name 
+FROM t_lenka_sorokova_project_sql_secondary_final tls2
+GROUP BY country , currency_name 
+HAVING average_gini IS NOT NULL 
+ORDER BY average_gini desc;
