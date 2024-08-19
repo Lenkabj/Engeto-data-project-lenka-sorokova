@@ -1,4 +1,5 @@
 Výzkumná otázka: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+
 SELECT 
 	*
 FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie tabuľky tls1
