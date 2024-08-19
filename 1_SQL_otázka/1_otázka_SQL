@@ -60,7 +60,7 @@ SELECT
 FROM wage_2021 w2021
 LEFT JOIN wage_2000 w2000
 	ON w2021.industry_code = w2000.industry_code
-ORDER BY w2021.industry_code;												-- porovnanie trendu 2000 vs. 2021
+ORDER BY w2021.industry_code;									-- porovnanie trendu 2000 vs. 2021
 
 
 WITH wage_2021 AS(
