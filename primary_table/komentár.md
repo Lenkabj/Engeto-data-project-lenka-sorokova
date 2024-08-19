@@ -1,13 +1,13 @@
 Primárna tabuľka - **t_lenka_sorokova_project_SQL_primary_final tls1**
 
-Aby bolo možné zodpovedať na výskumné otázky, vytvorila som si primárnu tabuľku **t_lenka_sorokova_project_SQL_primary_final**, ktorá vznikla spojením tabuliek czechia_payroll, czechia_payroll_industry_branch, czechia_price a czechia_price_category.
+Aby bolo možné zodpovedať na výskumné otázky, vytvorila som si primárnu tabuľku **t_lenka_sorokova_project_SQL_primary_final**, ktorá vznikla spojením tabuliek **czechia_payroll, czechia_payroll_industry_branch, czechia_price a czechia_price_category**.
 
 V prvej fáze som sa oboznámila s vyššie uvedenými tabuľkami. To zahŕňalo základnú analýzu dát, pochopenie vzťahov medzi tabuľkami, zistenie nulových hodnôt, duplicít. 
 Z týchto tabuliek som si vyselektovala len tie dáta, ktoré mi umožnia odpovedať na zadané otázky.
 Tvorbu primárnej tabuľky som si rozložila na menšie celky (postupovala som podľa výskumných otázok), ktoré som nakoniec spojila dohromady.
 
 V prvej otázke sa rieši rast miezd v odvetviach v priebehu rokov. 
-Vychádzala som z tabuliek czechia_payroll a czechia_payroll_industry_branch.
+Vychádzala som z tabuliek **czechia_payroll** a **czechia_payroll_industry_branch**.
 
 Výsledok prvej časti primárnej tabuľky:
 
@@ -34,8 +34,8 @@ Podmienky v klauzule WHERE:
 kód 200 -  prepočítaný na počet zamestnancov na plný úväzok
 industry_branch_code IS NOT NULL - nezobrazí mi priemer miezd za všetky odvetvia, došlo by tak k duplicitám`
 
-K analýze ďalších otázok, som potrebovala pripojiť tabuľky czechia_price a czechia_price_category. 
-V klauzule WHERE pribudla ďalšia podmienka region_code IS NULL - vyselektuje len priemernú cenu za všetky sledované regiony.
+K analýze ďalších otázok, som potrebovala pripojiť tabuľky **czechia_price** a **czechia_price_category**. 
+V klauzule WHERE pribudla ďalšia podmienka `region_code IS NULL` - vyselektuje len priemernú cenu za všetky sledované regiony.
 Informácie o cenách máme k dispozícii za obdobie 2006 - 2018.
 
 A tak vznikla finálna primárna tabuľka:
