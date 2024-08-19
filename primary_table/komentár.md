@@ -11,7 +11,7 @@ Vychádzala som z tabuliek czechia_payroll a czechia_payroll_industry_branch.
 
 Výsledok prvej časti primárnej tabuľky:
 
-SELECT
+`SELECT
 	cpay.industry_branch_code AS industry_code,
 	cpib.name AS industry,
 	round(avg(cpay.value), 2) AS average_wage,
@@ -26,13 +26,13 @@ WHERE 1=1
 GROUP BY cpay.industry_branch_code,
 	 cpib.name,
 	 cpay.payroll_year
-ORDER BY cpay.industry_branch_code ,cpay.payroll_year;
+ORDER BY cpay.industry_branch_code ,cpay.payroll_year;`
 		 
 Dáta boli uvedené štvrťročne, posledný rok 2021 len 2 štvrťročia, preto som si vytvorila priemernú ročnú mzdu a časové rozhranie je 2000 - 2021.  
 Podmienky v klauzule WHERE:
-kód 5958 - zaistí obmedzenie výsledkov na priemernú hrubú mzdu na zamestnanca
+`kód 5958 - zaistí obmedzenie výsledkov na priemernú hrubú mzdu na zamestnanca
 kód 200 -  prepočítaný na počet zamestnancov na plný úväzok
-industry_branch_code IS NOT NULL - nezobrazí mi priemer miezd za všetky odvetvia, došlo by tak k duplicitám
+industry_branch_code IS NOT NULL - nezobrazí mi priemer miezd za všetky odvetvia, došlo by tak k duplicitám`
 
 K analýze ďalších otázok, som potrebovala pripojiť tabuľky czechia_price a czechia_price_category. 
 V klauzule WHERE pribudla ďalšia podmienka region_code IS NULL - vyselektuje len priemernú cenu za všetky sledované regiony.
