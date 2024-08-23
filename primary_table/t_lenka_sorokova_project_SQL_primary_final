@@ -8,12 +8,12 @@ SELECT
 	cpc.name AS food_name,
 	round(avg(cp.value), 2) AS average_price 
 FROM czechia_payroll cpay
-	LEFT JOIN czechia_payroll_industry_branch cpib 
-		ON cpay.industry_branch_code = cpib.code
-	LEFT JOIN czechia_price cp 
-		ON cpay.payroll_year = YEAR (cp.date_from)
-	LEFT JOIN czechia_price_category cpc
-		ON cp.category_code = cpc.code 
+LEFT JOIN czechia_payroll_industry_branch cpib 
+	ON cpay.industry_branch_code = cpib.code
+LEFT JOIN czechia_price cp 
+	ON cpay.payroll_year = YEAR (cp.date_from)
+LEFT JOIN czechia_price_category cpc
+	ON cp.category_code = cpc.code 
 WHERE 1=1
 	AND cpay.value_type_code = 5958 
 	AND cpay.calculation_code = 200 
