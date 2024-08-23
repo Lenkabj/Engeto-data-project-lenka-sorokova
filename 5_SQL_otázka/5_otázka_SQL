@@ -42,14 +42,14 @@ WITH gdp_percentage_increase AS (
     WHERE in_year BETWEEN 2006 AND 2018 
     GROUP BY in_year),
 	price_percentage_increase AS (
-    SELECT 
+	SELECT
 		in_year ,
 	    avg(average_price) AS average_prices ,
 	    lag(avg(average_price)) OVER (ORDER BY in_year) AS previous_year_average_prices,
 	    round(((avg(average_price) - lag(avg(average_price)) OVER (ORDER BY in_year)) / lag(avg(average_price)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_prices_changes
 	FROM t_lenka_sorokova_project_sql_primary_final tls1
-    WHERE in_year BETWEEN 2006 AND 2018 
-    GROUP BY in_year)
+	WHERE in_year BETWEEN 2006 AND 2018 
+	GROUP BY in_year)
 SELECT 
 	gdpi.in_year,
 	gdpi.percentage_gdp_changes,
