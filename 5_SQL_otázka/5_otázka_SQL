@@ -25,29 +25,29 @@ WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic';  -- obmedzen
 
 
 WITH gdp_percentage_increase AS (
-	SELECT 
-		in_year,
-		GDP,
-		lag(GDP) OVER (ORDER BY in_year) AS previous_year_GDP,
-	    round(((GDP - lag(GDP) OVER (ORDER BY in_year)) / lag(GDP) OVER (ORDER BY in_year)) * 100, 2) AS percentage_gdp_changes
+    SELECT 
+	in_year,
+	GDP,
+	lag(GDP) OVER (ORDER BY in_year) AS previous_year_GDP,
+	round(((GDP - lag(GDP) OVER (ORDER BY in_year)) / lag(GDP) OVER (ORDER BY in_year)) * 100, 2) AS percentage_gdp_changes
     FROM t_lenka_sorokova_project_sql_secondary_final tls2
     WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic'),
 	wage_percentage_increase AS (
     SELECT 
-	    in_year ,
-	    avg(average_wage) AS average_wages ,
-	    lag(avg(average_wage)) OVER (ORDER BY in_year) AS previous_year_average_wages,
-	    round(((avg(average_wage) - lag(avg(average_wage)) OVER (ORDER BY in_year)) / lag(avg(average_wage)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_wages_changes
+	 in_year ,
+	 avg(average_wage) AS average_wages ,
+	 lag(avg(average_wage)) OVER (ORDER BY in_year) AS previous_year_average_wages,
+	 round(((avg(average_wage) - lag(avg(average_wage)) OVER (ORDER BY in_year)) / lag(avg(average_wage)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_wages_changes
     FROM t_lenka_sorokova_project_sql_primary_final tls1
     WHERE in_year BETWEEN 2006 AND 2018 
     GROUP BY in_year),
-	price_percentage_increase AS (
-	SELECT
-		in_year ,
-	    avg(average_price) AS average_prices ,
-	    lag(avg(average_price)) OVER (ORDER BY in_year) AS previous_year_average_prices,
-	    round(((avg(average_price) - lag(avg(average_price)) OVER (ORDER BY in_year)) / lag(avg(average_price)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_prices_changes
-	FROM t_lenka_sorokova_project_sql_primary_final tls1
+    price_percentage_increase AS (
+    SELECT
+	in_year ,
+	avg(average_price) AS average_prices ,
+	lag(avg(average_price)) OVER (ORDER BY in_year) AS previous_year_average_prices,
+	round(((avg(average_price) - lag(avg(average_price)) OVER (ORDER BY in_year)) / lag(avg(average_price)) OVER (ORDER BY in_year)) * 100, 2) AS percentage_prices_changes
+    FROM t_lenka_sorokova_project_sql_primary_final tls1
 	WHERE in_year BETWEEN 2006 AND 2018 
 	GROUP BY in_year)
 SELECT 
