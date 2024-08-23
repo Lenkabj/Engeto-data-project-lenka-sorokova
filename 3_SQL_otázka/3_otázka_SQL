@@ -1,6 +1,5 @@
 Výzkumná otázka: Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
 
-
 SELECT
 	*
 FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie tabuľky
@@ -23,14 +22,14 @@ WITH previous_year_prices AS(
 	    LAG(average_price) OVER (PARTITION BY food_category_code ORDER BY in_year) AS previous_price
     FROM t_lenka_sorokova_project_sql_primary_final tls1
     WHERE in_year BETWEEN 2006 AND 2018),					-- zistím si ceny za minulý rok	
-percentage_yearly_changes AS (
+	percentage_yearly_changes AS (
     SELECT 
-            food_category_code ,
+     	food_category_code ,
 	    food_name ,	
 	    in_year,
 	    round(((average_price - previous_price) / previous_price) * 100, 2) AS percentage_yearly_changes
     FROM previous_year_prices),									-- zistím percentuálne ročné zmeny
-average_percentage_changes AS (
+	average_percentage_changes AS (
     SELECT 
 	    food_category_code ,
 	    food_name ,
