@@ -57,7 +57,7 @@ Cieľom projektu bolo vytvoriť dve hlavné tabuľky a sadu SQL dotazov, pomocou
 Výsledky analýzy môžete vidieť v samostatných zložkách tohto repozitára.
 
 Pri vypracovávaní projektu som sa potýkala s rôznymi úskaliami.
-V prvom rade bolo potrebné sa oboznámiť s poskytnutými tabuľkami. Aké dáta obsahujú, kde sú nulové hodnoty, zdvojené údaje, časové rozhranie a tak ďalej, aby som si následne vedela z tabuliek vybrať len relevantné dáta a s tými pracovať.
+V prvom rade bolo potrebné sa oboznámiť s poskytnutými tabuľkami. Zistiť aké dáta obsahujú, kde sú nulové hodnoty, zdvojené údaje, časové rozhranie a tak ďalej, aby som si následne vedela z tabuliek vybrať len relevantné dáta a s tými pracovať.
 
 SQL jazyk nám ponúka viacero možností, ako k analýze pristupovať.
 Ja som využívala najmä Common Table Expression CTE (klauzula WITH), čo mi umožnilo si dotaz rozdeliť na menšie časti a následne ich spojiť do požadovaného výstupu. CTE umožňuje nie len ľahšiu analýzu, ale aj lepšiu čitateľnosť kódu.
