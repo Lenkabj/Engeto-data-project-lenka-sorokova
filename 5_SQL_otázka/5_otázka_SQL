@@ -32,7 +32,7 @@ WITH gdp_percentage_increase AS (
 	round(((GDP - lag(GDP) OVER (ORDER BY in_year)) / lag(GDP) OVER (ORDER BY in_year)) * 100, 2) AS percentage_gdp_changes
     FROM t_lenka_sorokova_project_sql_secondary_final tls2
     WHERE in_year BETWEEN 2006 AND 2018 AND country = 'Czech Republic'),
-	wage_percentage_increase AS (
+    wage_percentage_increase AS (
     SELECT 
 	 in_year ,
 	 avg(average_wage) AS average_wages ,
