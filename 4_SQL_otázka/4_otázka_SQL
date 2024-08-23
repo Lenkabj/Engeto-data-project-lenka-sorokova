@@ -5,31 +5,31 @@ SELECT
 FROM t_lenka_sorokova_project_sql_primary_final tls1; -- zobrazenie tabuľky
 
 WITH averages_price_differences AS (
-	    SELECT 
-		    in_year,
-		    round(avg(average_price), 2) AS average__prices,
-		    round(lag(avg(average_price)) OVER (ORDER BY in_year), 2)  AS previous_average_prices
-	    FROM t_lenka_sorokova_project_sql_primary_final tls1
-	    WHERE in_year BETWEEN 2006 AND 2018
-	    GROUP BY in_year),		
+	SELECT 
+	    in_year,
+		round(avg(average_price), 2) AS average__prices,
+		round(lag(avg(average_price)) OVER (ORDER BY in_year), 2)  AS previous_average_prices
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE in_year BETWEEN 2006 AND 2018
+	GROUP BY in_year),		
 	price_percentage_average_changes AS (	
-	    SELECT 
-		    in_year,
-		    round(((average__prices - previous_average_prices)/ previous_average_prices)* 100, 2)  AS average_prices_percentage_changes
-	    FROM averages_price_differences),                  -- z tohoto dotazu zistím percentuálne ročné zmeny v cenách
+	SELECT 
+		in_year,
+		round(((average__prices - previous_average_prices)/ previous_average_prices)* 100, 2)  AS average_prices_percentage_changes
+	FROM averages_price_differences),                  -- z tohoto dotazu zistím percentuálne ročné zmeny v cenách
 	average_wage_differences AS (
-	    SELECT 
-		    in_year,
-		    round(avg(average_wage), 2) AS average_wages,
-		    round(lag(avg(average_wage)) OVER (ORDER BY in_year), 2)  AS previous_average_wages
-	    FROM t_lenka_sorokova_project_sql_primary_final tls1
-	    WHERE in_year BETWEEN 2006 AND 2018
-	    GROUP BY in_year),		
+	SELECT 
+		in_year,
+		round(avg(average_wage), 2) AS average_wages,
+		round(lag(avg(average_wage)) OVER (ORDER BY in_year), 2)  AS previous_average_wages
+	FROM t_lenka_sorokova_project_sql_primary_final tls1
+	WHERE in_year BETWEEN 2006 AND 2018
+	GROUP BY in_year),		
 	wage_percentage_average_changes AS (	
-	    SELECT 
-		    in_year,
-		    round(((average_wages - previous_average_wages)/ previous_average_wages)* 100, 2)  AS average_wages_percentage_changes 
-	    FROM average_wage_differences)						-- z tohoto dotazu zistím percentuálne ročné zmeny v mzdách
+	SELECT 
+		in_year,
+		round(((average_wages - previous_average_wages)/ previous_average_wages)* 100, 2)  AS average_wages_percentage_changes 
+	FROM average_wage_differences)						-- z tohoto dotazu zistím percentuálne ročné zmeny v mzdách
 SELECT
 	wpach.in_year,
 	average_prices_percentage_changes,
