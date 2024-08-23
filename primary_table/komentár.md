@@ -39,5 +39,4 @@ V klauzule WHERE pribudla ďalšia podmienka `region_code IS NULL` - vyselektuje
 Informácie o cenách máme k dispozícii za obdobie 2006 - 2018.
 
 A tak vznikla finálna primárna tabuľka:
-
-**t_lenka_sorokova_project_SQL_primary_final** (https://github.com/Lenkabj/Engeto-data-project-lenka-sorokova/blob/main/primary_table/t_lenka_sorokova_project_SQL_primary_final)
+(https://github.com/Lenkabj/Engeto-data-project-lenka-sorokova/blob/main/primary_table/t_lenka_sorokova_project_SQL_primary_final)
